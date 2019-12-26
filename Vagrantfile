@@ -26,6 +26,7 @@ Vagrant.configure("2") do |config|
           curl -fsSL https://get.docker.com -o get-docker.sh
           sudo sh get-docker.sh
           usermod -aG docker vagrant
+          cat share/id_rsa.pub >> .ssh/authorized_keys
           
       SHELL
 
