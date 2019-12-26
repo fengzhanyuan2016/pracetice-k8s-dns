@@ -1,0 +1,1 @@
+{"virtualbox":{"/home/vagrant/share":{"guestpath":"/home/vagrant/share","hostpath":"/Users/iven/vms/k8s/share","disabled":false,"__vagrantfile":true},"/vagrant":{"guestpath":"/vagrant","hostpath":"/Users/iven/vms/k8s","disabled":false,"__vagrantfile":true}}}
