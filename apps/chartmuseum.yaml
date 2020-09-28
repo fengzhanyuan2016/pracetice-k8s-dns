@@ -1,0 +1,49 @@
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: helm
+  name: chartmuseum-service
+spec:
+  ports:
+  - port: 8080
+    targetPort: 8080
+    protocol: TCP
+  selector:
+    app: mychart
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: helm
+  name: mychart
+spec:
+  selector:
+    matchLabels:
+      app: mychart
+  template:
+    metadata:
+      labels:
+        app: mychart
+    spec:
+      containers:
+      - name: mychart
+        image: chartmuseum/chartmuseum:latest
+        ports:
+        - containerPort: 8080
+
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  namespace: helm
+  name: chartmuseum-ingress
+spec:
+  rules:
+  - host: chart.iven.
+    http:
+      paths:
+      - path: /tea
+        backend:
+          serviceName: nginx-service
+          servicePort: 8000
