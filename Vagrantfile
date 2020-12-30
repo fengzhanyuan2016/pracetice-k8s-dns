@@ -4,7 +4,7 @@ Vagrant.configure("2") do |config|
       # 设置虚拟机的Box
       node.vm.box = "ubuntu/xenial64"
       # 设置虚拟机的主机名
-      node.vm.hostname="node#{i}"
+      node.vm.hostname="k8s#{i}"
       # 设置虚拟机的硬盘
       node.disksize.size = '30GB'
       # 设置虚拟机的IP
@@ -16,7 +16,7 @@ Vagrant.configure("2") do |config|
           # 设置虚拟机的名称
           v.name = "node#{i}"
           # 设置虚拟机的内存大小  
-          v.memory = 2048
+          v.memory = 4096
           # 设置虚拟机的CPU个数
           v.cpus = 2
       end
