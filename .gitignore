@@ -1,1 +1,3 @@
 .vagrant
+istio
+*.log

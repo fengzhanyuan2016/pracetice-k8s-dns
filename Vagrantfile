@@ -16,13 +16,17 @@ Vagrant.configure("2") do |config|
           # 设置虚拟机的名称
           if i == 1
              v.name = "master-#{i}"
+             v.memory = 8096
+             v.cpus = 4
           else
              v.name = "node-#{i}"
+             # 设置虚拟机的内存大小  
+             v.memory = 4096
+             # 设置虚拟机的CPU个数
+             v.cpus = 2
           end
-          # 设置虚拟机的内存大小  
-          v.memory = 4096
-          # 设置虚拟机的CPU个数
-          v.cpus = 2
+
+
       end
       # 使用shell脚本进行软件安装和配置
       node.vm.provision "shell", inline: <<-SHELL
